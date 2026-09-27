@@ -1,0 +1,607 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KiEstudos - Simulados Elite Civil Prep</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef8ff',
+              100: '#d8efff',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              dark: '#0B1120',
+              card: '#0f172a',
+              cardBorder: '#1e293b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Scrollbar & Micro-Styles -->
+<style data-purpose="custom-styling">
+    /* Custom dark scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b1120;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="bg-[#070b14] text-slate-100 font-sans min-h-screen flex antialiased selection:bg-cyan-500 selection:text-white">
+<!-- BEGIN: Sidebar -->
+<aside class="w-72 bg-[#090f1d] border-r border-slate-800/80 flex flex-col flex-shrink-0 h-screen sticky top-0 overflow-y-auto" data-purpose="platform-sidebar">
+<!-- Platform Branding -->
+<div class="p-5 flex items-center justify-between border-b border-slate-800/70"><div class="flex items-center justify-between w-full"><a href="#" class="flex items-center"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhdfaLxSW8Jyx2t7fEzC1J1Ab6cc5rT8WQfFhzl80XO-xIPQBM3nDYwriWe7na_tlboJMkxvgSrAioDs4uOGe0DhqpZossHckWcUUwYTxubufmXTIoB0ObLG5I8vFds4fEKjpN1XThZ6iroTPPmEp6w5fm9lqEXampTWS1_wnkjC-aDQSoSrfax9E-orOGIxPnlUA7MgKprDRkNS4WJpufOpybpF8AY6mUNghrEiwF1xzL5ncrfH0s7XO9YW0S5904Pnk" alt="KiEstudos" class="h-14 w-auto object-contain"></a><span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700/60">v2.4</span></div></div>
+<!-- Navigation Menu -->
+<nav aria-label="Navegação Lateral" class="flex-1 px-3.5 py-4 space-y-6 text-xs font-medium text-slate-400">
+<!-- ESTUDO ATIVO Group -->
+<div>
+<div class="px-2 pb-2 text-[10px] font-bold tracking-wider uppercase text-slate-500">
+          Estudo Ativo
+        </div>
+<div class="space-y-1">
+<!-- Painel -->
+<a class="flex items-center px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Painel</span>
+</a>
+<!-- Flashcards -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Flashcards</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-semibold bg-sky-950/80 text-sky-400 border border-sky-800/50 rounded">SM-2</span>
+</a>
+<!-- Questões & Filtros -->
+<a class="flex items-center px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Questões &amp; Filtros</span>
+</a>
+<!-- Simulados (Ativo / Active item) -->
+<a class="flex items-center px-3 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-600/30 transition" href="#">
+<svg class="w-4 h-4 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Simulados</span>
+</a>
+<!-- Redação & Correção -->
+<a class="flex items-center px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Redação &amp; Correção</span>
+</a>
+<!-- Modo Foco -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Modo Foco</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-semibold bg-slate-800 text-slate-400 rounded">Breve</span>
+</a>
+<!-- Rotina com IA -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Rotina com IA</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">PRO</span>
+</a>
+<!-- Caderno de Erros -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Caderno de Erros</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-semibold bg-slate-800 text-slate-400 rounded">Breve</span>
+</a>
+</div>
+</div>
+<!-- PLANEJAMENTO & DESEMPENHO Group -->
+<div>
+<div class="px-2 pb-2 text-[10px] font-bold tracking-wider uppercase text-slate-500">
+          Planejamento &amp; Desempenho
+        </div>
+<div class="space-y-1">
+<!-- Editais Verticalizados -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Editais Verticalizados</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded">Novo</span>
+</a>
+<!-- Mapas Mentais -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Mapas Mentais</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-semibold bg-slate-800 text-slate-400 rounded">Breve</span>
+</a>
+<!-- Métricas & Analytics -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Métricas &amp; Analytics</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded">Novo</span>
+</a>
+<!-- Ranking Global -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Ranking Global</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-semibold bg-slate-800 text-slate-400 rounded">Breve</span>
+</a>
+</div>
+</div>
+<!-- SISTEMA Group -->
+<div>
+<div class="px-2 pb-2 text-[10px] font-bold tracking-wider uppercase text-slate-500">
+          Sistema
+        </div>
+<div class="space-y-1">
+<!-- Assinatura Premium -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<div class="flex items-center">
+<svg class="w-4 h-4 mr-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-slate-300">Assinatura Premium</span>
+</div>
+<span class="px-1.5 py-0.5 text-[9px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded">VIP</span>
+</a>
+<!-- Configurações -->
+<a class="flex items-center px-3 py-2.5 rounded-lg hover:bg-slate-800/60 hover:text-slate-200 transition group" href="#">
+<svg class="w-4 h-4 mr-3 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Configurações</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Sidebar User Footer -->
+<div class="p-3 border-t border-slate-800/80 bg-[#070d18]">
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800/70 hover:border-slate-700 transition">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-slate-700 to-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-sky-400">
+            CE
+          </div>
+<div class="leading-tight">
+<span class="text-xs font-semibold text-slate-200 block truncate max-w-[110px]">CEO KiEstudos</span>
+<span class="inline-flex items-center text-[10px] text-emerald-400 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-pulse"></span>
+              Online
+            </span>
+</div>
+</div>
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Quick Options -->
+<div class="flex items-center justify-between mt-2.5 px-2 text-[11px] text-slate-400 font-medium">
+<button class="flex items-center hover:text-slate-200 transition" title="Alternar tema">
+<svg class="w-3.5 h-3.5 mr-1.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          Escuro
+        </button>
+<button class="flex items-center hover:text-red-400 transition" title="Encerrar sessão">
+<svg class="w-3.5 h-3.5 mr-1 text-slate-400 hover:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          Sair
+        </button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 min-w-0 overflow-y-auto px-6 py-8 lg:px-12 bg-gradient-to-b from-[#080d1a] to-[#04070f]" data-purpose="simulados-page">
+<!-- Top Bar / Breadcrumb / Actions -->
+<header class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-800/60 gap-4"><div><div class="flex items-center space-x-2 text-xs text-sky-400 mb-1 font-semibold uppercase tracking-wider"><span class="">Ambiente de Treinamento Oficial</span><span class="text-slate-600">•</span><span class="text-slate-400">Ciclo 2025</span></div><h1 class="text-3xl font-black text-white tracking-tight flex items-center gap-3">Simulados &amp; Provas Oficiais<span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold tracking-normal">Banco Homologado</span></h1><p class="text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed">Escolha entre simulados oficiais prontos com ranking nacional ou configure um caderno personalizado sob medida.</p></div><div class="flex items-center gap-3"><div class="bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-2 text-right"><span class="text-[10px] text-slate-400 uppercase tracking-wider block">Banco Geral KiEstudos</span><span class="text-sm font-bold text-white">52.480 <span class="text-emerald-400 text-xs font-medium">questões catalogadas</span></span></div></div></header><div class="mt-6 space-y-4"><div class="p-1.5 rounded-2xl bg-[#090f1d] border border-slate-800/90 shadow-xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2"><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1"><button class="flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-600/30 border border-blue-400/30 transition" id="tab-btn-acervo"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="">1. Simulados Prontos do Acervo</span><span class="px-2 py-0.5 text-[10px] font-black uppercase rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">50k+ Questões</span></button><button class="flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 font-semibold text-xs sm:text-sm border border-transparent transition" id="tab-btn-personalizado"><svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="">2. Criar Simulado Personalizado</span><span class="px-2 py-0.5 text-[10px] font-semibold rounded bg-slate-800 text-slate-400 border border-slate-700">Sob Demanda</span></button></div><div class="hidden lg:flex items-center space-x-2 text-[11px] text-slate-400 px-4 border-l border-slate-800"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="">Modo Acervo Ativo</span></div></div><div class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-sky-950/20 border border-sky-500/20 text-xs text-sky-200"><div class="flex items-center gap-2"><span class="px-2 py-0.5 text-[10px] font-extrabold uppercase rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Aba Atual</span><span class="font-medium text-slate-300">Exibindo <strong>Simulados Prontos do Acervo</strong> com estatísticas consolidadas e notas de corte.</span></div><a class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 hover:underline" href="#custom-builder">Prefere montar do zero? Ir para o Criador →</a></div></div>
+<!-- BEGIN: OfficialSimulationsCarousel -->
+<!-- Seção de Simulados Oficiais Prontos -->
+<section class="mt-6"><div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md mb-6"><div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-800/80 gap-3"><div><div class="flex items-center gap-2"><span class="text-xs font-black uppercase tracking-wider text-cyan-400">Biblioteca de Provas</span><span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Atualizado Hoje</span></div><h2 class="text-xl font-black text-white mt-1">Acervo de Provas &amp; Simulados Oficiais</h2><p class="text-xs text-slate-400 mt-0.5">Mais de 50.000 questões prontas para treinar com temporizador real e ranking comunitário.</p></div><div class="flex items-center gap-2"><span class="text-xs text-slate-400 font-medium">Exibindo <strong>6 de 84</strong> simulados oficiais</span></div></div><div class="mt-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4"><div class="relative flex-1"><input class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-4 py-2.5 pl-10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition" placeholder="Buscar por cargo, órgão ou ano (ex: PF 2024, Auditor RFB, Escrevente TJ-SP...)" type="text"><svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div><div class="flex items-center space-x-2 text-xs text-slate-400 font-medium"><span class="text-[11px] text-slate-500 uppercase font-bold tracking-wider">Ordenar:</span><button class="px-2.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold shadow-sm">Mais Realizados</button><button class="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 text-xs">Mais Recentes</button><button class="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 text-xs">Maior Dificuldade</button></div></div><div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3"><div class="flex flex-wrap items-center gap-1.5"><span class="text-[11px] text-slate-400 font-semibold mr-1">Carreira:</span><button class="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">Todas</button><button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800">Policial</button><button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800">Fiscal / SEFAZ</button><button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800">Tribunais (TRT/TJ)</button><button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800">Admin / INSS</button><button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800">Controle / TCU</button></div><div class="flex flex-wrap items-center gap-1.5"><span class="text-[11px] text-slate-400 font-semibold mr-1">Banca:</span><button class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-200 border border-slate-700">Cebraspe</button><button class="px-2 py-0.5 rounded text-[11px] font-medium text-slate-400 hover:text-slate-200 border border-slate-800">FGV</button><button class="px-2 py-0.5 rounded text-[11px] font-medium text-slate-400 hover:text-slate-200 border border-slate-800">Vunesp</button><button class="px-2 py-0.5 rounded text-[11px] font-medium text-slate-400 hover:text-slate-200 border border-slate-800">FCC</button></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">CEBRASPE</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">POLICIAL</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 2.4k fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">PF 2024 - Agente de Polícia Federal (Prova Completa)</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Língua Portuguesa, RLM, Informática Avançada, Dir. Penal, Processual Penal e Admin. Fator Cespe (-1 por erro).</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">120 Q • 4h30</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">74.2 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Gabarito em Vídeo + Texto</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">CEBRASPE</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">POLICIAL</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 1.8k fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">PRF - Policial Rodoviário Federal (Edital Atualizado)</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Foco em Legislação de Trânsito atualizada, Física Aplicada, Geopolítica Brasileira e Dir. Constitucional.</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">120 Q • 4h30</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">71.8 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Ranking Nacional Ativo</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">VUNESP</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">TRIBUNAIS</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 3.1k fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">TJ-SP 2024 - Escrevente Técnico Judiciário</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Normas da Corregedoria Geral, Direito Processual Civil e Penal, Constitucional, Matemática e RLM.</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">100 Q • 5h00</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">81.4 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Gabarito Comentado</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">FGV</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">FISCAL</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 950 fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">Receita Federal - Auditor Fiscal (Prova Completa)</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Direito Tributário e Aduaneiro, Auditoria Geral, Contabilidade Avançada, TI e Fluência em Dados.</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">140 Q • 5h30</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">68.5 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Resolução em Vídeo</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">CEBRASPE</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ADMIN</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 4.2k fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">INSS - Técnico do Seguro Social (120 Itens)</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Seguridade Social completa (70 questões peso 2), Direito Constitucional, Administrativo, Ética e RLM.</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">120 Q • 3h30</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">88.1 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Ranking Nacional</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div><div class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition duration-200 group flex flex-col justify-between hover:shadow-xl hover:shadow-cyan-950/20 relative"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20">FCC</span><span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">TRIBUNAIS</span></div><span class="text-[10px] font-semibold text-slate-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 1.5k fizeram</span></div><h3 class="text-sm font-bold text-white group-hover:text-cyan-400 transition">TRF-3 - Analista Judiciário (Área Judiciária)</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Doutrina e jurisprudência dos tribunais superiores, Processo Civil, Penal, Previdenciário e Constitucional.</p><div class="mt-4 grid grid-cols-2 gap-2 text-[11px] py-2.5 px-3 bg-slate-950/60 rounded-xl border border-slate-800/80"><div><span class="text-slate-500 block">Duração / Itens:</span><span class="font-semibold text-slate-200">60 Q • 4h30</span></div><div><span class="text-slate-500 block">Média Comunidade:</span><span class="font-bold text-emerald-400">76.9 pts</span></div></div><div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between"><span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Gabarito Comentado</span><button class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-md shadow-cyan-500/20 transition flex items-center gap-1"><span class="">Começar Prova</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div></div><div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-4 rounded-xl bg-slate-900/60 border border-slate-800"><span class="text-xs text-slate-400">Mostrando página 1 de 14 • 84 simulados disponíveis</span><div class="flex items-center space-x-1.5"><button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700/80 hover:text-white transition">← Anterior</button><button class="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white">1</button><button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">2</button><button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">3</button><span class="px-1 text-slate-500">...</span><button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">14</button><button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700/80 hover:text-white transition">Próxima →</button></div></div></section>
+<!-- END: OfficialSimulationsCarousel -->
+<!-- BEGIN: CustomSimuladoBuilder -->
+<!-- Ferramenta Principal de Configuração Personalizada -->
+<section class="mt-10 mb-16" id="custom-builder"><div class="mb-8 p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-[#0c1427] to-cyan-950/30 border border-cyan-500/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><div class="flex items-start space-x-3.5"><div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center flex-shrink-0 text-cyan-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div><div><span class="text-[10px] font-bold tracking-wider uppercase text-cyan-400 block">Módulo 2 • Modo Personalizado</span><h3 class="text-base font-bold text-white">Prefere montar do seu jeito?</h3><p class="text-xs text-slate-400 mt-0.5">Filtre disciplinas cirúrgicas, selecione bancas específicas e defina regras de pontuação próprias.</p></div></div><div class="flex items-center gap-2"><span class="text-[11px] font-semibold text-slate-400 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800">Configuração Sob Demanda</span></div></div>
+<div class="flex items-center justify-between mb-5">
+<div>
+<span class="text-xs font-extrabold uppercase tracking-widest text-sky-400">Laboratório de Testes</span>
+<h2 class="text-xl font-black text-white">Criador Sob Demanda</h2>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 bg-slate-900/60 transition">
+            Limpar Filtros
+          </button>
+<button class="text-xs text-cyan-400 hover:text-cyan-300 px-3 py-1.5 rounded-lg border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 transition flex items-center gap-1">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            Carregar Último Modelo
+          </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left & Center Configuration Columns (2 Cols) -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Passo 1: Carreira e Bancas -->
+<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 backdrop-blur-md">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center space-x-2.5">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs">1</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Carreira &amp; Banca Examinadora</h3>
+</div>
+<span class="text-[11px] text-slate-500">Obrigatório</span>
+</div>
+<!-- Seleção de Carreiras -->
+<label class="block text-xs font-semibold text-slate-300 mb-2">Selecione a Carreira:</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5">
+<!-- Option Policial -->
+<label class="relative flex flex-col p-3 rounded-xl border border-blue-500/50 bg-blue-500/10 text-white cursor-pointer hover:border-blue-400 transition">
+<input checked="" class="sr-only" name="carreira" type="radio" value="policial">
+<span class="font-bold text-xs flex items-center justify-between">
+                  Policial
+                  <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+</span>
+<span class="text-[10px] text-slate-400 mt-1">PF, PRF, PC, PM, DEPEN</span>
+</label>
+<!-- Option Fiscal & Controle -->
+<label class="relative flex flex-col p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 cursor-pointer hover:border-slate-700 transition">
+<input class="sr-only" name="carreira" type="radio" value="fiscal">
+<span class="font-bold text-xs flex items-center justify-between">
+                  Fiscal &amp; Controle
+                  <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+</span>
+<span class="text-[10px] text-slate-500 mt-1">Receita, SEFAZ, TCU</span>
+</label>
+<!-- Option Tribunais -->
+<label class="relative flex flex-col p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 cursor-pointer hover:border-slate-700 transition">
+<input class="sr-only" name="carreira" type="radio" value="tribunais">
+<span class="font-bold text-xs flex items-center justify-between">
+                  Tribunais
+                  <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+</span>
+<span class="text-[10px] text-slate-500 mt-1">TJ, TRF, TRT, TRE</span>
+</label>
+<!-- Option Administrativo -->
+<label class="relative flex flex-col p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 cursor-pointer hover:border-slate-700 transition">
+<input class="sr-only" name="carreira" type="radio" value="administrativo">
+<span class="font-bold text-xs flex items-center justify-between">
+                  Geral / Admin
+                  <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+</span>
+<span class="text-[10px] text-slate-500 mt-1">INSS, Ministérios, Autarquias</span>
+</label>
+</div>
+<!-- Seleção de Bancas -->
+<label class="block text-xs font-semibold text-slate-300 mb-2">Banca Examinadora:</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/40" type="button">
+                Cebraspe (CESPE)
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-400 border border-slate-700/80 hover:border-slate-600 hover:text-white transition" type="button">
+                FGV (Fundação Getulio Vargas)
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-400 border border-slate-700/80 hover:border-slate-600 hover:text-white transition" type="button">
+                VUNESP
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-400 border border-slate-700/80 hover:border-slate-600 hover:text-white transition" type="button">
+                FCC
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-400 border border-slate-700/80 hover:border-slate-600 hover:text-white transition" type="button">
+                Todas as Bancas
+              </button>
+</div>
+</div>
+<!-- Passo 2: Matérias e Disciplinas -->
+<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 backdrop-blur-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800/80 gap-3">
+<div class="flex items-center space-x-2.5">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs">2</span>
+<div>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Matérias &amp; Disciplinas</h3>
+<p class="text-[11px] text-slate-400">Escolha quais matérias irão compor o seu caderno de prova</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-[11px] font-bold text-cyan-400 hover:underline" type="button">Marcar Todas</button>
+<span class="text-slate-600">|</span>
+<button class="text-[11px] font-bold text-amber-400 hover:underline flex items-center gap-1" type="button">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                  Modo Fraquezas (IA)
+                </button>
+</div>
+</div>
+<!-- Busca Rápida de Matérias -->
+<div class="mt-4 relative">
+<input class="w-full bg-slate-950/70 border border-slate-800 rounded-xl px-3.5 py-2 pl-9 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500" placeholder="Filtrar matérias ou assuntos específicos (Ex: Controle de Constitucionalidade...)" type="text">
+<svg class="w-4 h-4 text-slate-500 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Grid de Tags de Matérias -->
+<div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+<!-- Matéria Ativa 1 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/20 cursor-pointer">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-semibold text-white">Direito Constitucional</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300">1.420 q</span>
+</label>
+<!-- Matéria Ativa 2 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/20 cursor-pointer">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-semibold text-white">Direito Administrativo</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300">1.890 q</span>
+</label>
+<!-- Matéria Ativa 3 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/20 cursor-pointer">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-semibold text-white">Língua Portuguesa</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300">2.340 q</span>
+</label>
+<!-- Matéria Ativa 4 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/20 cursor-pointer">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-semibold text-white">Informática &amp; TI</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300">1.120 q</span>
+</label>
+<!-- Matéria Ativa 5 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/20 cursor-pointer">
+<div class="flex items-center space-x-2.5">
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-semibold text-white">Raciocínio Lógico (RLM)</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300">850 q</span>
+</label>
+<!-- Matéria Inativa 6 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-slate-800/80 bg-slate-950/40 cursor-pointer hover:border-slate-700">
+<div class="flex items-center space-x-2.5">
+<input class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-medium text-slate-400">Contabilidade Geral</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-500">640 q</span>
+</label>
+<!-- Matéria Inativa 7 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-slate-800/80 bg-slate-950/40 cursor-pointer hover:border-slate-700">
+<div class="flex items-center space-x-2.5">
+<input class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-medium text-slate-400">Direito Penal &amp; Processo</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-500">1.620 q</span>
+</label>
+<!-- Matéria Inativa 8 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-slate-800/80 bg-slate-950/40 cursor-pointer hover:border-slate-700">
+<div class="flex items-center space-x-2.5">
+<input class="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0 focus:ring-offset-0" type="checkbox">
+<span class="text-xs font-medium text-slate-400">Legislação Especial</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-500">930 q</span>
+</label>
+</div>
+</div>
+<!-- Passo 3: Questões & Filtros Técnicos -->
+<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 backdrop-blur-md">
+<div class="flex items-center space-x-2.5 mb-4">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs">3</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Quantidade &amp; Regras de Filtro</h3>
+</div>
+<!-- Botões de Quantidade -->
+<label class="block text-xs font-semibold text-slate-300 mb-2">Quantidade de Questões:</label>
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5">
+<button class="py-2.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80 transition" type="button">10</button>
+<button class="py-2.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80 transition" type="button">20</button>
+<button class="py-2.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80 transition" type="button">30</button>
+<button class="py-2.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-md shadow-blue-600/30 border border-blue-500 transition" type="button">60</button>
+<button class="py-2.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80 transition" type="button">120 (CESPE)</button>
+<button class="py-2.5 rounded-xl text-xs font-bold bg-slate-950 text-slate-400 border border-slate-800 hover:border-slate-700" type="button">Personalizado</button>
+</div>
+<!-- Formato das Questões -->
+<label class="block text-xs font-semibold text-slate-300 mb-2">Modelo de Questão:</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-5">
+<label class="flex items-center p-2.5 rounded-xl border border-slate-800 bg-slate-950/60 cursor-pointer hover:border-slate-700">
+<input class="rounded-full border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0" name="tipo_questao" type="radio">
+<span class="ml-2 text-xs font-medium text-slate-300">Múltipla Escolha (A-E)</span>
+</label>
+<label class="flex items-center p-2.5 rounded-xl border border-blue-500/40 bg-blue-500/10 cursor-pointer">
+<input checked="" class="rounded-full border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0" name="tipo_questao" type="radio">
+<span class="ml-2 text-xs font-bold text-white">Certo ou Errado</span>
+</label>
+<label class="flex items-center p-2.5 rounded-xl border border-slate-800 bg-slate-950/60 cursor-pointer hover:border-slate-700">
+<input class="rounded-full border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0" name="tipo_questao" type="radio">
+<span class="ml-2 text-xs font-medium text-slate-300">Misto / Qualquer</span>
+</label>
+</div>
+<!-- Filtros Avançados / Toggles -->
+<label class="block text-xs font-semibold text-slate-300 mb-2">Filtros de Qualidade:</label>
+<div class="space-y-2 bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-xs text-slate-300">Apenas questões inéditas (que nunca resolvi)</span>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0" type="checkbox">
+</label>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-xs text-slate-300">Excluir questões anuladas ou desatualizadas pela banca</span>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0" type="checkbox">
+</label>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-xs text-slate-300">Incluir apenas questões com resolução comentada em texto/vídeo</span>
+<input class="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0" type="checkbox">
+</label>
+</div>
+</div>
+</div>
+<!-- Right Summary and Timing Column (1 Col) -->
+<div class="space-y-6">
+<!-- Passo 4: Modo Cronômetro -->
+<div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 backdrop-blur-md">
+<div class="flex items-center space-x-2.5 mb-4">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-black font-bold text-xs">4</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Cronômetro &amp; Ritmo</h3>
+</div>
+<div class="space-y-2.5">
+<!-- Modo Prova Real -->
+<label class="flex items-start p-3 rounded-xl border border-emerald-500/50 bg-emerald-500/5 cursor-pointer">
+<input checked="" class="mt-0.5 rounded-full border-slate-700 bg-slate-900 text-emerald-400 focus:ring-0" name="modo_tempo" type="radio">
+<div class="ml-2.5">
+<div class="flex items-center space-x-1.5">
+<span class="text-xs font-bold text-white">Modo Prova Real</span>
+<span class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-bold">RECOMENDADO</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-0.5">Tempo corrido rigoroso de concurso com contagem regressiva fixa (2h00 para 60 questões).</p>
+</div>
+</label>
+<!-- Tempo por Questão -->
+<label class="flex items-start p-3 rounded-xl border border-slate-800 bg-slate-950/40 hover:border-slate-700 cursor-pointer">
+<input class="mt-0.5 rounded-full border-slate-700 bg-slate-900 text-emerald-400 focus:ring-0" name="modo_tempo" type="radio">
+<div class="ml-2.5">
+<span class="text-xs font-semibold text-slate-200 block">Tempo Fixo por Questão</span>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-1 text-[10px] rounded bg-slate-800 text-slate-300 border border-slate-700">1 min</span>
+<span class="px-2 py-1 text-[10px] rounded bg-sky-900/60 text-sky-200 border border-sky-700 font-bold">2 min</span>
+<span class="px-2 py-1 text-[10px] rounded bg-slate-800 text-slate-300 border border-slate-700">3 min</span>
+</div>
+</div>
+</label>
+<!-- Modo Treino Livre -->
+<label class="flex items-start p-3 rounded-xl border border-slate-800 bg-slate-950/40 hover:border-slate-700 cursor-pointer">
+<input class="mt-0.5 rounded-full border-slate-700 bg-slate-900 text-emerald-400 focus:ring-0" name="modo_tempo" type="radio">
+<div class="ml-2.5">
+<span class="text-xs font-semibold text-slate-200 block">Treino Livre / Sem Pressão</span>
+<p class="text-[11px] text-slate-400 mt-0.5">Apenas marcação progressiva sem limite de encerramento automático.</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Passo 5: Painel Resumo Dinâmico & Call to Action -->
+<div class="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/40 border border-cyan-500/30 rounded-2xl p-5 shadow-2xl shadow-cyan-950/30 sticky top-6">
+<div class="flex items-center justify-between pb-3 border-b border-slate-800">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-400">Resumo da Simulação</span>
+<span class="flex items-center text-[11px] font-semibold text-emerald-400">
+<span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+                Pronto para gerar
+              </span>
+</div>
+<div class="py-4 space-y-3 text-xs">
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Carreira / Área:</span>
+<span class="font-bold text-white">Policial (PF/PRF)</span>
+</div>
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Banca Examinadora:</span>
+<span class="font-bold text-sky-400">Cebraspe (CESPE)</span>
+</div>
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Total de Questões:</span>
+<span class="font-bold text-white text-sm">60 itens</span>
+</div>
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Matérias Ativas:</span>
+<span class="font-bold text-white">5 disciplinas</span>
+</div>
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Tempo Limite:</span>
+<span class="font-bold text-emerald-400">2 horas (120 min)</span>
+</div>
+<div class="flex items-center justify-between text-slate-300">
+<span class="text-slate-400">Critério de Pontuação:</span>
+<span class="font-semibold text-amber-300">Líquida (-1 erro anula 1 acerto)</span>
+</div>
+</div>
+<!-- Primary CTAs -->
+<div class="mt-4 pt-3 border-t border-slate-800 space-y-2.5">
+<button class="w-full py-3.5 px-4 rounded-xl font-black text-sm tracking-wide text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 hover:from-sky-300 hover:to-emerald-300 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-150 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+                COMEÇAR SIMULADO AGORA
+              </button>
+<button class="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800/80 hover:bg-slate-800 hover:text-white border border-slate-700/80 transition flex items-center justify-center gap-2" type="button">
+<svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+</svg>
+                Salvar como Modelo Favorito
+              </button>
+</div>
+<p class="text-[10px] text-center text-slate-500 mt-3">
+              Geração em lote com randomização de alternativas contra memorização viciada.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CustomSimuladoBuilder -->
+</main>
+<!-- END: MainContent -->
+<!-- Simple script for interactive UI elements -->
+<script data-purpose="card-selection-events">
+    // Light interactive touches for select buttons
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+      input.addEventListener('change', () => {
+        // Visual updates can be hooked here seamlessly
+      });
+    });
+  </script>
+
+
+</body></html>

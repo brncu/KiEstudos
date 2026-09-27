@@ -1,0 +1,713 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KiEstudos • Painel Principal</title>
+<!-- Google Fonts: Inter & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              400: '#22d3ee',
+              500: '#00b4d8',
+              600: '#0077b6',
+              900: '#03045e',
+            },
+            surface: {
+              base: '#07090e',
+              sidebar: '#0a0d14',
+              card: '#0f141e',
+              subtle: '#141a27',
+              border: 'rgba(255, 255, 255, 0.07)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #07090e;
+      color: #e2e8f0;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(10, 13, 20, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+  </style>
+<style data-purpose="component-effects">
+    .glow-active {
+      box-shadow: 0 0 20px -3px rgba(0, 180, 216, 0.45);
+    }
+    .glow-cobra {
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 18px -2px rgba(78, 222, 163, 0.4);
+    }
+    @keyframes smoke-float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { transform: translateY(-3px) scale(1.1); opacity: 0.3; }
+    }
+    .smoke-anim {
+      animation: smoke-float 2.5s infinite ease-in-out;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="h-screen flex overflow-hidden font-sans select-none antialiased bg-[#07090e]">
+<!-- BEGIN: AppLayout -->
+<div class="flex w-full h-full overflow-hidden bg-[#07090e]">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-[#0a0d14] border-r border-white/5 flex flex-col justify-between z-20" data-purpose="sidebar-navigation">
+<!-- Upper Section: Branding & Navigation -->
+<div class="flex flex-col h-[calc(100%-80px)]">
+<!-- Logo & Brand Header -->
+<div class="px-5 py-5 flex items-center justify-between border-b border-white/[0.06]"><div class="flex items-center gap-3 py-1"><img alt="KiEstudos" class="w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)] filter brightness-110 h-20 max-h-24" style="height: 84px; max-height: 96px; width: auto; object-fit: contain;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhsn3MBqnj_DUC2eSfXcfIqxn8l433i_itpnyDUgNlVOwF7wZ16-1ombFsGAvXwscPFP1f5iaNmjETPhLXjaF8pfxe3HrRyGwjQ3H7Ey9GAVlBR_9tv06OWDe4czMQ2YCv-k7R0O3HFesq8RnVkzueUqIpew-RSTvYXCYTsS0Ne4B8wIHHBWs7txHPR-4a4eUZik_zHtbOZ4Bjqo9ULE_sCZ2LRSshs-lgGCnwevUXACTlW9l-4I6QfW83ZOu1EzfovY"></div><span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">v0.1</span></div>
+<!-- Scrollable Navigation Menu -->
+<nav class="flex-1 px-3 py-3 overflow-y-auto space-y-4 text-xs font-medium">
+<!-- Category 1: Estudo Ativo -->
+<div>
+<div class="px-3 pb-2 text-[10px] uppercase font-bold tracking-wider text-slate-500">
+  ESTUDO ATIVO
+</div>
+<ul class="space-y-0.5">
+<!-- 1. Concurso Foco (EM PRIMEIRO LUGAR conforme solicitado) -->
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+</svg>
+<span class="font-medium text-slate-200">Concurso Foco</span>
+</div>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Alvo</span>
+</a>
+</li>
+<!-- 2. Painel (selecionado/ativo com background azul pill) -->
+<li class="">
+<a class="group flex items-center justify-between px-3 py-2 rounded-xl bg-gradient-to-r from-[#0095cc] to-[#00b4d8] text-white font-semibold glow-active transition-all" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
+<rect height="7" rx="1.5" width="7" x="3" y="14"></rect>
+</svg>
+<span class="">Painel</span>
+</div>
+</a>
+</li>
+<!-- 3. Flashcards -->
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500 group-hover:text-slate-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Flashcards</span>
+</div>
+<span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">SM-2</span>
+</a>
+</li>
+<!-- 4. Questões & Filtros -->
+<li class="">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Questões &amp; Filtros</span>
+</a>
+</li>
+<!-- 5. Simulados -->
+<li class="">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Simulados</span>
+</a>
+</li>
+<!-- 6. Redação & Correção -->
+<li class="">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Redação &amp; Correção</span>
+</a>
+</li>
+<!-- 7. Modo Foco -->
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Modo Foco</span>
+</div>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/5">Breve</span>
+</a>
+</li>
+<!-- 8. Rotina com IA -->
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Rotina com IA</span>
+</div>
+<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">PRO</span>
+</a>
+</li>
+<!-- 9. Caderno de Erros -->
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Caderno de Erros</span>
+</div>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/5">Breve</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Category 2: Planejamento & Desempenho -->
+<div>
+<div class="px-3 pb-2 text-[10px] uppercase font-bold tracking-wider text-slate-500">
+  PLANEJAMENTO &amp; DESEMPENHO
+</div>
+<ul class="space-y-0.5">
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Editais Verticalizados</span>
+</div>
+<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Novo</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Mapas Mentais</span>
+</div>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/5">Breve</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Métricas &amp; Analytics</span>
+</div>
+<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Novo</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Ranking Global</span>
+</div>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/5">Breve</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Category 3: Sistema -->
+<div>
+<div class="px-3 pb-2 text-[10px] uppercase font-bold tracking-wider text-slate-500">
+  SISTEMA
+</div>
+<ul class="space-y-0.5">
+<li class="">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Assinatura Premium</span>
+</div>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/30">VIP</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Configurações</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<!-- Footer Section: Profile & Actions -->
+<div class="px-3 py-3 border-t border-white/[0.06] bg-[#090c13]">
+<!-- User Info -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-white/[0.03] transition-colors cursor-pointer mb-1.5">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-slate-700 to-slate-600 flex items-center justify-center font-bold text-xs text-white ring-1 ring-white/10 flex-shrink-0">
+      GU
+    </div>
+<div class="min-w-0">
+<div class="text-[12px] font-semibold text-slate-200 truncate">
+        Guilherme Silva dos San...
+      </div>
+<div class="flex items-center gap-1.5 text-[10px] text-emerald-400">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="">Online</span>
+</div>
+</div>
+</div>
+<svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Quick Preferences -->
+<div class="flex items-center justify-between pt-1 text-[11px] text-slate-400 border-t border-white/[0.04]">
+<button class="flex items-center gap-1.5 hover:text-slate-200 transition-colors py-1 px-1.5 rounded">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Escuro</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-red-400 transition-colors py-1 px-1.5 rounded">
+<svg class="w-3.5 h-3.5 text-slate-400 hover:text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Sair</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<!-- BEGIN: TopBar -->
+<header class="h-16 border-b border-white/[0.06] px-8 flex items-center justify-between bg-[#080b11]/90 backdrop-blur-md z-10" data-purpose="top-navigation-header">
+<!-- Left: User Status -->
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+<span class="text-emerald-400 tracking-wide font-mono font-bold">SESSÃO ATIVA</span>
+<span class="text-slate-600">•</span>
+<span class="text-slate-400 font-normal">quinta-feira, 24 de setembro</span>
+</div>
+<h1 class="text-lg font-bold text-white tracking-tight leading-tight">
+    Olá, Guilherme Silva dos Santos!
+  </h1>
+</div>
+<!-- Right: Actions, Search, Goal & Institutional Brand Logo -->
+<div class="flex items-center gap-4">
+<!-- Search Bar with Shortcut -->
+<div class="relative w-64 md:w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full bg-[#0e131d] border border-white/[0.08] text-xs text-slate-200 placeholder-slate-500 rounded-lg pl-9 pr-12 py-2 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500 transition-all" placeholder="Buscar matérias, questões..." type="text">
+<div class="absolute inset-y-0 right-0 pr-2.5 flex items-center">
+<kbd class="px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-white/[0.05] border border-white/10 rounded">⌘K</kbd>
+</div>
+</div>
+<!-- Weekly Goal Widget -->
+<div class="flex items-center gap-3 px-3.5 py-1.5 bg-[#0f1420] border border-white/[0.07] rounded-lg">
+<div class="flex flex-col">
+<span class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Meta Semanal</span>
+<span class="text-xs font-semibold text-slate-200">0h / 40h <span class="text-slate-500 font-normal">(0%)</span></span>
+</div>
+<div class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Notification Bell -->
+<button class="relative w-9 h-9 rounded-lg bg-[#0e131d] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-brand-500 ring-2 ring-[#0e131d]"></span>
+</button>
+<!-- Energy / Streak Bolt Button -->
+<button class="w-9 h-9 rounded-lg bg-[#0e131d] border border-white/[0.08] flex items-center justify-center text-amber-400 hover:border-amber-500/40 hover:bg-amber-500/10 transition-all">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+</button>
+<!-- KiEstudos Brand Logo in Top Right (Clean & Crisp) -->
+
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-8 space-y-6" data-purpose="dashboard-body">
+<!-- BEGIN: FeaturedExamCard -->
+
+<!-- END: FeaturedExamCard -->
+<!-- BEGIN: HighPerformancePreparationSection (Completamente restaurado) -->
+<div class="space-y-6">
+<!-- Banner de Boas-vindas & Visão Geral de Desempenho -->
+<div class="rounded-2xl bg-gradient-to-r from-[#101725] via-[#0e131d] to-[#090d15] border border-white/[0.08] p-6 shadow-xl relative overflow-hidden">
+  <div class="absolute -right-10 -top-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+    <div>
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-[11px] font-semibold text-brand-400 mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+        PAINEL DE DESEMPENHO E ESTATÍSTICAS
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight flex items-center gap-2">
+        Estatísticas Gerais de Estudo <span class="text-xl">🚀</span>
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+        "A constância constrói aprovações inquestionáveis." Acompanhe seu ritmo de absorção, retenção mnemônica e tempo líquido diário.
+      </p>
+    </div>
+    <div class="flex items-center gap-3 flex-wrap">
+      <div class="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-right">
+        <div class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Meta Semanal</div>
+        <div class="text-sm font-bold text-white">12h 45m <span class="text-slate-500 text-xs font-normal">/ 40h (31.8%)</span></div>
+      </div>
+      <button class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-[#003642] font-bold text-xs shadow-lg shadow-brand-500/20 transition-all active:scale-95 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
+        Iniciar Cronômetro
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 4 Main KPI Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <!-- KPI 1: Horas Líquidas -->
+  <div class="p-5 rounded-xl bg-[#0e131d] border border-white/[0.07] flex flex-col justify-between hover:border-white/20 transition-colors shadow-lg">
+    <div>
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+        <span class="font-semibold uppercase tracking-wider text-[11px]">Horas Líquidas</span>
+        <span class="p-1.5 rounded-lg bg-brand-500/10 text-brand-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="text-2xl font-extrabold text-white tracking-tight">00h 00m</div>
+      <div class="text-xs text-slate-400 mt-1">Hoje • Meta: <strong class="text-slate-200 font-semibold">4h</strong></div>
+      <div class="mt-2 text-[11px] text-slate-500 font-mono">Semana: 12h 45m acumuladas</div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
+      <span class="text-slate-400 text-[11px]">Sessão inativa</span>
+      <button class="font-semibold text-brand-400 hover:text-brand-300 flex items-center gap-1 transition-colors">
+        Estudar agora →
+      </button>
+    </div>
+  </div>
+
+  <!-- KPI 2: Questões Resolvidas & Taxa -->
+  <div class="p-5 rounded-xl bg-[#0e131d] border border-white/[0.07] flex flex-col justify-between hover:border-white/20 transition-colors shadow-lg">
+    <div>
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+        <span class="font-semibold uppercase tracking-wider text-[11px]">Questões &amp; Taxa</span>
+        <span class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="text-2xl font-extrabold text-white tracking-tight">0 <span class="text-sm font-normal text-slate-400">hoje</span></div>
+      <div class="text-xs text-emerald-400 mt-1 font-semibold">78.4% de acerto geral</div>
+      <div class="mt-2 text-[11px] text-slate-500 font-mono">342 questões resolvidas</div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
+      <span class="text-slate-400 text-[11px]">Banco de questões</span>
+      <button class="font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors">
+        Resolver bateria →
+      </button>
+    </div>
+  </div>
+
+  <!-- KPI 3: Flashcards & Ciclo SM-2 -->
+  <div class="p-5 rounded-xl bg-[#0e131d] border border-white/[0.07] flex flex-col justify-between hover:border-white/20 transition-colors shadow-lg">
+    <div>
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+        <span class="font-semibold uppercase tracking-wider text-[11px]">Ciclo SM-2</span>
+        <span class="p-1.5 rounded-lg bg-purple-500/10 text-purple-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="text-2xl font-extrabold text-white tracking-tight">0 <span class="text-sm font-normal text-slate-400">pendentes</span></div>
+      <div class="text-xs text-slate-400 mt-1">148 cards memorizados</div>
+      <div class="mt-2 text-[11px] text-purple-400 font-mono">Próximo ciclo em ~2h</div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
+      <span class="text-slate-400 text-[11px]">Decks ativos</span>
+      <button class="font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1 transition-colors">
+        Revisar deck →
+      </button>
+    </div>
+  </div>
+
+  <!-- KPI 4: Sequência & Constância -->
+  <div class="p-5 rounded-xl bg-[#0e131d] border border-white/[0.07] flex flex-col justify-between hover:border-white/20 transition-colors shadow-lg">
+    <div>
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+        <span class="font-semibold uppercase tracking-wider text-[11px]">Constância &amp; Fogo</span>
+        <span class="p-1.5 rounded-lg bg-amber-500/10 text-amber-400">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="text-2xl font-extrabold text-amber-400 tracking-tight">7 dias</div>
+      <div class="text-xs text-slate-400 mt-1">Sequência ativa de estudos</div>
+      <div class="mt-2 text-[11px] text-slate-500 font-mono">Recorde pessoal: 19 dias</div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
+      <span class="text-slate-400 text-[11px]">Ritmo diário</span>
+      <span class="font-semibold text-amber-300">Fogo aceso 🔥</span>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Gráficos de Evolução & Desempenho por Matéria -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Gráfico de Evolução Semanal (2 colunas) -->
+  <div class="lg:col-span-2 rounded-2xl bg-[#0e131d] border border-white/[0.07] p-6 shadow-xl flex flex-col justify-between space-y-5">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-base font-bold text-white tracking-tight">Evolução Semanal de Estudos</h3>
+        <p class="text-xs text-slate-400 mt-0.5">Horas líquidas x Questões resolvidas nos últimos 7 dias</p>
+      </div>
+      <div class="flex items-center gap-3 text-xs font-medium">
+        <div class="flex items-center gap-1.5 text-slate-300">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+          <span class="">Horas</span>
+        </div>
+        <div class="flex items-center gap-1.5 text-slate-300">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="">Questões</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico em barras CSS sofisticado -->
+    <div class="pt-4 pb-2 grid grid-cols-7 gap-3 items-end h-48 border-b border-white/[0.06]">
+      <!-- Seg -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end">
+        <div class="text-[10px] text-slate-400 font-mono">3.2h</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-brand-500/80 rounded-t-sm h-[65%]"></div>
+          <div class="w-3 bg-emerald-400/80 rounded-t-sm h-[50%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Seg</span>
+      </div>
+      <!-- Ter -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end">
+        <div class="text-[10px] text-slate-400 font-mono">4.5h</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-brand-500 rounded-t-sm h-[90%]"></div>
+          <div class="w-3 bg-emerald-400 rounded-t-sm h-[80%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Ter</span>
+      </div>
+      <!-- Qua -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end">
+        <div class="text-[10px] text-slate-400 font-mono">2.8h</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-brand-500/80 rounded-t-sm h-[55%]"></div>
+          <div class="w-3 bg-emerald-400/80 rounded-t-sm h-[40%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Qua</span>
+      </div>
+      <!-- Qui (Hoje) -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end rounded-lg bg-white/[0.02] p-1 border border-white/[0.04]">
+        <div class="text-[10px] text-brand-400 font-mono font-bold">Hoje</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-brand-500/30 rounded-t-sm h-[10%]"></div>
+          <div class="w-3 bg-emerald-400/30 rounded-t-sm h-[8%]"></div>
+        </div>
+        <span class="text-[11px] text-white font-bold">Qui</span>
+      </div>
+      <!-- Sex -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end opacity-40">
+        <div class="text-[10px] text-slate-500 font-mono">-</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Sex</span>
+      </div>
+      <!-- Sab -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end opacity-40">
+        <div class="text-[10px] text-slate-500 font-mono">-</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Sáb</span>
+      </div>
+      <!-- Dom -->
+      <div class="flex flex-col items-center gap-2 h-full justify-end opacity-40">
+        <div class="text-[10px] text-slate-500 font-mono">-</div>
+        <div class="w-full flex items-end justify-center gap-1 h-32">
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+          <div class="w-3 bg-white/10 rounded-t-sm h-[4%]"></div>
+        </div>
+        <span class="text-[11px] text-slate-400 font-medium">Dom</span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between text-xs text-slate-400 pt-1">
+      <span class="">Média diária: <strong class="text-slate-200">3h 15m</strong></span>
+      <span class="">Taxa de assertividade semanal: <strong class="text-emerald-400">81.2%</strong></span>
+      <a href="#" class="text-brand-400 hover:underline font-semibold">Ver Relatório Analítico Detalhado →</a>
+    </div>
+  </div>
+
+  <!-- Card de Desempenho por Matéria (1 coluna) -->
+  <div class="rounded-2xl bg-[#0e131d] border border-white/[0.07] p-6 shadow-xl flex flex-col justify-between space-y-4">
+    <div class="flex items-center justify-between border-b border-white/[0.06] pb-3">
+      <h3 class="text-base font-bold text-white tracking-tight">Taxa por Matéria</h3>
+      <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.04] text-slate-400 border border-white/[0.06]">Precisão</span>
+    </div>
+    <div class="space-y-3.5">
+      <!-- Matéria 1 -->
+      <div>
+        <div class="flex justify-between text-xs mb-1">
+          <span class="text-slate-200 font-medium">Língua Portuguesa</span>
+          <span class="text-emerald-400 font-semibold font-mono">85% (112 q)</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/[0.06] rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-400 rounded-full w-[85%]"></div>
+        </div>
+      </div>
+      <!-- Matéria 2 -->
+      <div>
+        <div class="flex justify-between text-xs mb-1">
+          <span class="text-slate-200 font-medium">Raciocínio Lógico &amp; Mat.</span>
+          <span class="text-brand-400 font-semibold font-mono">80% (88 q)</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/[0.06] rounded-full overflow-hidden">
+          <div class="h-full bg-brand-400 rounded-full w-[80%]"></div>
+        </div>
+      </div>
+      <!-- Matéria 3 -->
+      <div>
+        <div class="flex justify-between text-xs mb-1">
+          <span class="text-slate-200 font-medium">Direito Constitucional</span>
+          <span class="text-blue-400 font-semibold font-mono">76% (64 q)</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/[0.06] rounded-full overflow-hidden">
+          <div class="h-full bg-blue-400 rounded-full w-[76%]"></div>
+        </div>
+      </div>
+      <!-- Matéria 4 -->
+      <div>
+        <div class="flex justify-between text-xs mb-1">
+          <span class="text-slate-200 font-medium">Direito Administrativo</span>
+          <span class="text-purple-400 font-semibold font-mono">74% (52 q)</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/[0.06] rounded-full overflow-hidden">
+          <div class="h-full bg-purple-400 rounded-full w-[74%]"></div>
+        </div>
+      </div>
+      <!-- Matéria 5 -->
+      <div>
+        <div class="flex justify-between text-xs mb-1">
+          <span class="text-slate-200 font-medium">Informática &amp; TI</span>
+          <span class="text-amber-400 font-semibold font-mono">68% (26 q)</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/[0.06] rounded-full overflow-hidden">
+          <div class="h-full bg-amber-400 rounded-full w-[68%]"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-2 border-t border-white/[0.06]">
+      <button class="w-full py-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.06] text-xs font-semibold text-slate-300 border border-white/[0.08] transition-colors">
+        Ver Todas as 14 Disciplinas
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Ações Rápidas de Estudo no Rodapé do Dashboard -->
+<div class="p-5 rounded-2xl bg-[#0e131d] border border-white/[0.07] flex flex-wrap items-center justify-between gap-4 shadow-lg">
+  <div class="flex items-center gap-3">
+    <span class="w-3 h-3 rounded-full bg-brand-400 animate-ping"></span>
+    <div>
+      <div class="text-xs font-bold text-white uppercase tracking-wider">Plano Diário Sugerido</div>
+      <div class="text-xs text-slate-400">Complete seu ciclo de hoje: 1h Português + 40 Questões + Revisão SM-2</div>
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <button class="px-4 py-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-slate-200 text-xs font-semibold transition-colors">
+      Personalizar Metas
+    </button>
+    <button class="px-4 py-2 rounded-lg bg-brand-500 hover:bg-brand-400 text-[#003642] text-xs font-bold transition-colors shadow-sm">
+      Começar Sessão de Estudos
+    </button>
+  </div>
+</div>
+</div>
+<!-- END: HighPerformancePreparationSection -->
+</main>
+<!-- END: Scrollable Content -->
+<!-- BEGIN: MonochromaticAIAssistantWidget (A LENDÁRIA COBRA FUMANDO!) -->
+<!-- Símbolo autêntico da FEB / KiEstudos: Cobra fumando charuto com fumaça e raio de energia -->
+<aside class="fixed bottom-7 right-8 z-30 group" data-purpose="floating-copilot-widget"><div class="relative flex items-center justify-end cursor-pointer group hover:scale-110 active:scale-95 transition-all duration-300 ease-out"><div class="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-[#10141e] border border-white/20 relative shadow-2xl hover:border-brand-400 transition-all glow-active hover:shadow-[0_0_25px_rgba(0,180,216,0.35)] p-0.5"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrcFSbrl3hb6eRaNpjnwiQblmkoSssJaNZ-EV-tVBc-BCAyd3zK3MiJ38sgLS9fzX-j3PLrc-4RmCDtOX4O6DDON6BT2EVed0n9vj96X_w0AGoiDyjJSXQTwyJJj-hP1yUl_MoBGSF-F1LWJBsXGZmrbba5dpJvpC-RhkFLUM1-XUEFa2WICgRkirVVBO_2GOfNpGO6z1x7SeaBBhqeTWj8lNYJPH5VOiI7irJQPfZWR-5QVti2GuCjAJjVA1WdVaKTNA" alt="Cobra Fumando AI" class="w-full h-full filter invert mix-blend-screen select-none pointer-events-none object-contain scale-[1.38] translate-y-[-1px]"></div><span class="absolute top-0 right-0 z-20 flex h-3.5 w-3.5 pointer-events-none"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 ring-2 ring-[#0a0e16]"></span></span></div></aside>
+<!-- END: MonochromaticAIAssistantWidget -->
+</div>
+<!-- END: MainContentArea -->
+</div>
+<!-- END: AppLayout -->
+
+
+</body></html>
