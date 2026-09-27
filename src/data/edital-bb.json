@@ -1,0 +1,247 @@
+[
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Compreensão e Interpretação de Textos",
+    "weight": 1.5,
+    "order_index": 1
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Ortografia Oficial",
+    "weight": 1.5,
+    "order_index": 2
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Classe e Emprego de Palavras",
+    "weight": 1.5,
+    "order_index": 3
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Sintaxe da Oração e do Período",
+    "weight": 1.5,
+    "order_index": 4
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Pontuação",
+    "weight": 1.5,
+    "order_index": 5
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Concordância Verbal e Nominal",
+    "weight": 1.5,
+    "order_index": 6
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Regência Verbal e Nominal",
+    "weight": 1.5,
+    "order_index": 7
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Língua Portuguesa",
+    "topic": "Crase",
+    "weight": 1.5,
+    "order_index": 8
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Números Inteiros, Racionais e Reais",
+    "weight": 1.5,
+    "order_index": 9
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Sistema Legal de Medidas",
+    "weight": 1.5,
+    "order_index": 10
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Razões e Proporções",
+    "weight": 1.5,
+    "order_index": 11
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Divisão Proporcional",
+    "weight": 1.5,
+    "order_index": 12
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Regra de Três Simples e Composta",
+    "weight": 1.5,
+    "order_index": 13
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Porcentagem",
+    "weight": 1.5,
+    "order_index": 14
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Matemática",
+    "topic": "Lógica Proposicional",
+    "weight": 1.5,
+    "order_index": 15
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Atualidades do Mercado Financeiro",
+    "topic": "Os bancos na Era Digital: Atualidade",
+    "weight": 1,
+    "order_index": 16
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Atualidades do Mercado Financeiro",
+    "topic": "Internet banking e Mobile banking",
+    "weight": 1,
+    "order_index": 17
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Atualidades do Mercado Financeiro",
+    "topic": "Open banking",
+    "weight": 1,
+    "order_index": 18
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Atualidades do Mercado Financeiro",
+    "topic": "Novos modelos de negócios: Fintechs, startups e big techs",
+    "weight": 1,
+    "order_index": 19
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Atualidades do Mercado Financeiro",
+    "topic": "Sistema de pagamentos instantâneos (PIX)",
+    "weight": 1,
+    "order_index": 20
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Probabilidade e Estatística",
+    "topic": "Representação tabular e gráfica",
+    "weight": 1.5,
+    "order_index": 21
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Probabilidade e Estatística",
+    "topic": "Medidas de tendência central",
+    "weight": 1.5,
+    "order_index": 22
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Probabilidade e Estatística",
+    "topic": "Medidas de dispersão",
+    "weight": 1.5,
+    "order_index": 23
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Probabilidade e Estatística",
+    "topic": "Teorema de Bayes",
+    "weight": 1.5,
+    "order_index": 24
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Sistema Financeiro Nacional",
+    "weight": 1.5,
+    "order_index": 25
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Estrutura do Sistema Financeiro Nacional",
+    "weight": 1.5,
+    "order_index": 26
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Mercados Financeiros",
+    "weight": 1.5,
+    "order_index": 27
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Moeda e Política Monetária",
+    "weight": 1.5,
+    "order_index": 28
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Dinâmica do Mercado",
+    "weight": 1.5,
+    "order_index": 29
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Garantias do Sistema Financeiro Nacional",
+    "weight": 1.5,
+    "order_index": 30
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Conhecimentos Bancários",
+    "topic": "Crime de lavagem de dinheiro",
+    "weight": 1.5,
+    "order_index": 31
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Informática",
+    "topic": "Noções de Sistemas Operacionais (Windows e Linux)",
+    "weight": 1.5,
+    "order_index": 32
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Informática",
+    "topic": "Edição de textos, planilhas e apresentações",
+    "weight": 1.5,
+    "order_index": 33
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Informática",
+    "topic": "Segurança da informação",
+    "weight": 1.5,
+    "order_index": 34
+  },
+  {
+    "exam_name": "Banco do Brasil - Escriturário",
+    "discipline": "Informática",
+    "topic": "Conceitos de organização e de gerenciamento de informações",
+    "weight": 1.5,
+    "order_index": 35
+  }
+]
