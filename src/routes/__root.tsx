@@ -4,6 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
+  useNavigate,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -11,7 +13,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { AuthProvider } from "../lib/auth";
+import { AuthProvider, useAuth } from "../lib/auth";
+import { useTargetExam } from "@/hooks/useTargetExam";
 import { KiAMascot } from "@/components/KiAMascot";
 
 function NotFoundComponent() {
@@ -131,12 +134,42 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Global Onboarding Guard:
+ * Automatically redirects authenticated users requiring onboarding to /onboarding.
+ * Strict check: pathname !== '/onboarding' prevents infinite redirect loops.
+ */
+function GlobalOnboardingGuard() {
+  const navigate = useNavigate();
+  const pathname = useRouterState({
+    select: (s) => s.location.pathname,
+  });
+  const { user, loading: authLoading } = useAuth();
+  const { needsOnboarding, isLoading: targetExamLoading } = useTargetExam();
+
+  useEffect(() => {
+    // Wait for authentication and target exam profile resolution
+    if (authLoading || targetExamLoading) return;
+
+    // Do not redirect on auth page
+    if (pathname === "/auth") return;
+
+    // If authenticated user needs onboarding, redirect to /onboarding
+    if (user && needsOnboarding && pathname !== "/onboarding") {
+      navigate({ to: "/onboarding" });
+    }
+  }, [user, authLoading, targetExamLoading, needsOnboarding, pathname, navigate]);
+
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <GlobalOnboardingGuard />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
         <KiAMascot />

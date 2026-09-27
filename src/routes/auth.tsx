@@ -276,7 +276,7 @@ function AuthPage() {
                 alt="KiEstudos Logo"
                 className="w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)] filter brightness-110 h-16 sm:h-20 max-h-24 mix-blend-lighten opacity-90"
                 style={{ height: "76px", maxHeight: "96px", width: "auto", objectFit: "contain" }}
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhsn3MBqnj_DUC2eSfXcfIqxn8l433i_itpnyDUgNlVOwF7wZ16-1ombFsGAvXwscPFP1f5iaNmjETPhLXjaF8pfxe3HrRyGwjQ3H7Ey9GAVlBR_9tv06OWDe4czMQ2YCv-k7R0O3HFesq8RnVkzueUqIpew-RSTvYXCYTsS0Ne4B8wIHHBWs7txHPR-4a4eUZik_zHtbOZ4Bjqo9ULE_sCZ2LRSshs-lgGCnwevUXACTlW9l-4I6QfW83ZOu1EzfovY"
+                src="/logo-kiestudos.jpg"
               />
             </div>
 

@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { ActiveFocusCard } from "@/components/foco/ActiveFocusCard";
-import { EditalMagicoCard } from "@/components/foco/EditalMagicoCard";
 import { ConcursoFilterBar } from "@/components/foco/ConcursoFilterBar";
 import { useTargetExam } from "@/hooks/useTargetExam";
 import { toast } from "sonner";
@@ -292,12 +291,7 @@ function ConcursoFocoPage() {
           />
 
           {/* ========================================================================= */}
-          {/* 2. Edital Mágico Container (Milestone 3 / AI Syllabus Reader)             */}
-          {/* ========================================================================= */}
-          <EditalMagicoCard activeExam={activeExam} />
-
-          {/* ========================================================================= */}
-          {/* 3. Catalog Section: Filter Bar & Detailed Concurso Cards                  */}
+          {/* Visual Catalog Section: Filter Bar & High-Resolution Concurso Cards       */}
           {/* ========================================================================= */}
           <section
             id="catalogo-concursos"
@@ -378,12 +372,12 @@ function ConcursoFocoPage() {
                       }`}
                     >
                       {/* Banner / Image area */}
-                      <div className="relative h-28 bg-gradient-to-br from-surface-container-high to-surface-container overflow-hidden">
+                      <div className="relative h-36 sm:h-40 bg-gradient-to-br from-surface-container-high to-surface-container overflow-hidden">
                         {exam.banner_url ? (
                           <img
                             src={exam.banner_url}
                             alt={exam.title}
-                            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                            className="w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-300"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
@@ -404,7 +398,7 @@ function ConcursoFocoPage() {
                         {/* Active indicator */}
                         {isActive && (
                           <div className="absolute top-3 right-3">
-                            <Badge className="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 gap-1">
+                            <Badge className="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 gap-1 shadow-md">
                               <CheckCircle2 className="w-3 h-3" />
                               Foco Atual
                             </Badge>
@@ -416,7 +410,7 @@ function ConcursoFocoPage() {
                           <div className="absolute bottom-3 right-3">
                             <Badge
                               variant="outline"
-                              className="text-[10px] font-semibold px-2 py-0.5 bg-secondary/15 text-secondary border-secondary/30 backdrop-blur-sm gap-1"
+                              className="text-[10px] font-bold px-2 py-0.5 bg-secondary/20 text-secondary border-secondary/40 backdrop-blur-md shadow-sm gap-1"
                             >
                               <BookOpen className="w-3 h-3" />
                               Temos Materiais
@@ -499,7 +493,7 @@ function ConcursoFocoPage() {
                               variant="outline"
                               size="sm"
                               disabled
-                              className="w-full text-xs font-bold border-primary/40 text-primary cursor-default gap-1.5"
+                              className="w-full text-xs font-bold border-secondary/40 text-secondary bg-secondary/10 cursor-default gap-1.5"
                             >
                               <CheckCircle2 className="w-3.5 h-3.5" />
                               Concurso Foco Atual

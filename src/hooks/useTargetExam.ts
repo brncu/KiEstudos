@@ -1,6 +1,6 @@
 import { useMemo, useCallback } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/auth";
 import type {
   ConcursoExam,
@@ -39,7 +39,7 @@ export function useTargetExam(): UseTargetExamReturn {
         const { data, error } = await (supabase as any)
           .from("profiles")
           .select(
-            "id, full_name, target_exam, weekly_goal_hours"
+            "id, full_name, target_exam, target_exam_id, weekly_goal_hours, onboarding_completed"
           )
           .eq("id", user.id)
           .maybeSingle();
@@ -147,6 +147,16 @@ export function useTargetExam(): UseTargetExamReturn {
     const profile = profileQuery.data;
     if (!profile) return false;
 
+    // Check localStorage fallback for instant responsiveness right after onboarding
+    const localCompleted =
+      typeof window !== "undefined"
+        ? localStorage.getItem("kiestudos_onboarding_completed") === "true"
+        : false;
+
+    if (profile.onboarding_completed === true || localCompleted) {
+      return false;
+    }
+
     // If onboarding_completed is explicitly false
     if (profile.onboarding_completed === false) {
       return true;
@@ -169,6 +179,7 @@ export function useTargetExam(): UseTargetExamReturn {
         localStorage.setItem("kiestudos_target_exam_title", concurso.title);
         localStorage.setItem("kiestudos_target_exam_slug", concurso.slug);
         localStorage.setItem("kiestudos_target_exam", concurso.title);
+        localStorage.setItem("kiestudos_onboarding_completed", "true");
       }
 
       // 2. Persist to Supabase if user is logged in
@@ -178,6 +189,8 @@ export function useTargetExam(): UseTargetExamReturn {
             .from("profiles")
             .update({
               target_exam: concurso.title,
+              target_exam_id: concurso.id,
+              onboarding_completed: true,
             })
             .eq("id", user.id);
 

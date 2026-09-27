@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import { AppNav } from "@/components/AppNav";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { useTargetExam } from "@/hooks/useTargetExam";
 import { openKiAAssistant } from "@/services/kiaAssistantService";
 
@@ -54,9 +54,6 @@ function Dashboard() {
           streak: 0,
           flashcardsReviewed: 0,
           flashcardsTotal: 0,
-          editalProgress: 0,
-          editalCompletedTopics: 0,
-          editalTotalTopics: 0,
           weeklyEvolution: generateDefaultWeeklyData(),
           weeklyAverage: "0h 00m",
           weeklyAccuracy: "0.0%",
@@ -65,7 +62,7 @@ function Dashboard() {
       }
 
       try {
-        const [sessionsRes, answersRes, quizzesRes, reviewsRes, editalProgRes, topicsRes] =
+        const [sessionsRes, answersRes, quizzesRes, reviewsRes] =
           await Promise.all([
             supabase.from("study_sessions").select("minutes, session_date").eq("user_id", user.id),
             supabase.from("question_answers").select("is_correct, discipline, created_at").eq("user_id", user.id),
@@ -74,11 +71,6 @@ function Dashboard() {
               .from("user_flashcard_reviews")
               .select("id, last_rating")
               .eq("user_id", user.id),
-            supabase
-              .from("user_edital_progress")
-              .select("id, theory_read, exercises_done, reviews_count")
-              .eq("user_id", user.id),
-            supabase.from("edital_topics").select("id", { count: "exact", head: true }),
           ]);
 
         const totalMinutes =
@@ -99,13 +91,6 @@ function Dashboard() {
 
         const flashcardsReviewed = reviewsRes.data?.length || 0;
         const flashcardsTotal = flashcardsReviewed > 0 ? flashcardsReviewed : 0;
-
-        const totalEditalTopics = topicsRes.count || 0;
-        const completedTopics =
-          editalProgRes.data?.filter((p) => p.theory_read && (p.exercises_done || 0) > 0).length ||
-          0;
-        const editalProgress =
-          totalEditalTopics > 0 ? Math.round((completedTopics / totalEditalTopics) * 100) : 0;
 
         // Weekly Evolution calculation
         const now = new Date();
@@ -200,9 +185,6 @@ function Dashboard() {
           streak: 0,
           flashcardsReviewed,
           flashcardsTotal,
-          editalProgress,
-          editalCompletedTopics: completedTopics,
-          editalTotalTopics: totalEditalTopics,
           weeklyEvolution,
           weeklyAverage,
           weeklyAccuracy,
@@ -223,9 +205,6 @@ function Dashboard() {
           streak: 0,
           flashcardsReviewed: 0,
           flashcardsTotal: 0,
-          editalProgress: 0,
-          editalCompletedTopics: 0,
-          editalTotalTopics: 0,
           weeklyEvolution: generateDefaultWeeklyData(),
           weeklyAverage: "0h 00m",
           weeklyAccuracy: "0.0%",

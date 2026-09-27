@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { AppNav } from "@/components/AppNav";
 import { useAuth } from "@/lib/auth";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { Loader2 } from "lucide-react";
